@@ -1,0 +1,4 @@
+LIBRARY encriptadoAsm
+EXPORTS
+	Java_Encriptador_encriptar
+	Java_Encriptador_desencriptar
