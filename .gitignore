@@ -3,6 +3,14 @@ BalancinArduino
 HolaAsm
 HolaCyASM
 HolaJava
+HolaAsmCmas
 JavaHola
 *.class
 *.log
+/HolaAsmCmas/nbproject/private/
+/HolaAsmCmas/build/
+/sumador/nbproject/private/
+/sumador/build/
+/sumador/dist/
+/HolaAsmCmas/dist/
+/EncriptadorDeArchivos/dist/
