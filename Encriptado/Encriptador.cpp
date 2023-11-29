@@ -74,7 +74,13 @@ JNIEXPORT jchar JNICALL Java_Todo_Encriptador_generarChar
 (JNIEnv* env, jobject obj,jint num)
 {
     srand(time(NULL));
-    jchar n = (rand() % 85)+33+num;
+    jchar n = (rand() % 85);//+33+num;
+    __asm{
+        MOV ax,n
+        ADD eax,33
+        ADD eax,num
+        MOV n,ax
+    }
     return n;
 }
 

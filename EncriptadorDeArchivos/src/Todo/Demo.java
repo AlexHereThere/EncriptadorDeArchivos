@@ -16,10 +16,8 @@ public class Demo {
     public static void main(String[] args) throws IOException
     {
         Encriptador enc = new Encriptador();
-        int f = enc.compararCadenas("g", "S");
-        enc.encriptarROT47('2');
-        char s = enc.generarChar(2);
+        String s = enc.generarContrasena(5);
         System.out.println(s);
-        System.out.println(f);
+        
     }
 }

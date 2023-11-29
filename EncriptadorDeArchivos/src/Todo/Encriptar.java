@@ -148,16 +148,21 @@ public class Encriptar extends javax.swing.JFrame {
 
     private void botonEncriptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonEncriptarActionPerformed
          String mensajeError="ERROR ESPECIAL";
+         String direccion_nombre=areaDeTextoDeDireccion.getText();
+         int caso;
      try {
-         if(areaDeTextoDeDireccion.getText().length()==0)return;
+         if(direccion_nombre.length()==0)return;
          Icon icono =  new ImageIcon("src\\resources\\Imagenes\\candado.png");
          String contraseña = paraEncriptar.generarContrasena(5);
-        
-         int caso = paraEncriptar.encriptarArchivo(areaDeTextoDeDireccion.getText(),contraseña);
+         
+         if(direccion_nombre.contains(".txt") || direccion_nombre.contains(".csv"))
+         caso = paraEncriptar.encriptarArchivo(direccion_nombre,contraseña);
+         else caso=4;
          
          UIManager.put("OptionPane.messageFont", new Font("Segoe UI Semibold", Font.PLAIN, 18));
          if(caso==0)mensajeError = "Este archivo ya esta encriptado.";
          if(caso==1)mensajeError = "No se encontro archivo.";
+         if(caso==4)mensajeError = "Perdon, solo manejamos archivo txt y csv.";
          if(caso!=2)JOptionPane.showConfirmDialog(null, mensajeError, "Contraseña para desencriptar", JOptionPane.CLOSED_OPTION,JOptionPane.ERROR_MESSAGE);
          else JOptionPane.showConfirmDialog(null, "Su contraseña es "+contraseña, "Contraseña para desencriptar", JOptionPane.CLOSED_OPTION,JOptionPane.INFORMATION_MESSAGE,icono);
          //Aqui deberia haber un if para ver si el archivo se puede encriptar, en caso que no se pueda se usara la linea de codigo que esta arriba   
